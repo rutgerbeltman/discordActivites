@@ -18,7 +18,6 @@ class DiscordTogetherCommand(commands.Cog):
         if not ctx.author.voice or not ctx.author.voice.channel:
             return await ctx.send("You're not in a voice channel", hidden=True)
         channel = ctx.author.voice.channel
-        # Prevent wierd bugs from voicechannelbot interactions, delete if you want to risc it
         link = await self.discordControl.create_link(channel.id, activity)
 
         await ctx.send(f"Created \"{activity}\" activity in {channel.mention}. Click the link below to activate it.\n{link}")
